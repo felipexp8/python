@@ -1,0 +1,42 @@
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Oct 17 14:24:37 2019
+
+@author: felipe
+
+exPyBIO
+"""
+
+arquivo = None
+
+try:
+    arquivo = open("portalbio_export_17-10-2019-13-06-22.csv", "r")
+except IOError as e:
+    print "erro ao abrir o arquivo: " , e.args
+    
+base = arquivo.readlines()
+
+arquivo.close()
+
+dadosXY = list()
+
+try:
+    dadosXY = map(lambda l: l.split(";"), base)
+    
+except AttributeError as e:
+    print "Falha ao processar o arquivo CSV, deve ter muitas colunas faltando. " , e.args
+
+rotulo = dadosXY[0] # captura o rótulo
+
+del dadosXY[0] # remove o rótulo dos dados brutos
+
+def aqui(parametro): return parametro # alias para void*
+
+numColunas = len(dadosXY)
+
+def getColuna(k):
+    return map(lambda x:x[k], dadosXY )
+
+
+ 
