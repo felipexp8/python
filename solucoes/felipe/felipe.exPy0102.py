@@ -227,8 +227,13 @@ else:
     
 #F
 
+listMes = ["", "jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"] 
+
 mes = int(input("digite um mês (em números): \n"))
 
-if not mes in range(1,12):
+if not mes in range(1,13):
     print("este mês informado não existe")
-
+else:
+    print("o mes correspondente é: ", mes)
+    
+    
